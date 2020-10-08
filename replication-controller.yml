@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: #replicationcontroller
+ name: rc-teja
+ labels:
+  app: rc
+  type: front
+spec: #replicationcontroller
+ template:
+  metadata: #pod
+   name: RC-teja
+   labels:
+    app: RC
+  spec: #pod
+   containers:
+   - name: my-nginx
+     image: nginx
+ replicas: 3

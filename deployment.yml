@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: #Deployment
+ name: deploy-teja
+ labels:
+  app: deploy
+  type: front
+spec: #deployment
+ template:
+  metadata: #POD
+   name: pod-teja
+   labels:
+    app: pod
+    type: front1
+  spec: #POD
+   containers:
+   - name: nginxcontainer
+     image: nginx:1.18.err
+ replicas: 4
+ selector:
+  matchLabels: #can give app or type of POD, should match POD LABEL
+   app: pod

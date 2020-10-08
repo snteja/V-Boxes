@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: #RS
+ name: rs-teja
+ labels:
+  app: rs
+  type: front
+spec: #rs
+ template:
+  metadata: #pod
+   name: pod-teja
+   labels:
+    app: pod
+    type: front
+  spec: #pod
+   containers:
+   - name: my-nginx-container
+     image: nginx
+ replicas: 4
+ selector: 
+  matchLabels: #should match to POD label
+   type: front
